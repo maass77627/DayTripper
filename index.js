@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(e.target.park.value)
                 formEntry(e.target.park.value)
             })
-    // const imageone = document.getElementById("img1"), imagetwo = document.getElementById("img2"), imagethree = document.getElementById("img3")
+    let imageone = document.getElementById("img1"), imagetwo = document.getElementById("img2"), imagethree = document.getElementById("img3")
     
     let globalData
 
@@ -31,20 +31,43 @@ document.addEventListener("DOMContentLoaded", () => {
     function createListGroup() {
         console.log(globalData.length)
         for (let i = 0; i < globalData.length; i++) {
-            console.log(i)
-           let ol = document.getElementById("list-group")
-           let listitem = document.createElement("li")
-           listitem.className = "list-group-item"
-           listitem.id = `${i}`
-           listitem.innerText = globalData[i].fullName
-           listitem.addEventListener('mouseover', (e) => {
+             console.log(i)
+             let ol = document.getElementById("list-group")
+             let listitem = document.createElement("li")
+             listitem.className = "list-group-item"
+             listitem.id = `${i}`
+             listitem.innerText = globalData[i].fullName
+             listitem.addEventListener('mouseover', (e) => {
              listitem.className = "list-group-item active"
            })
-           listitem.addEventListener('mouseout', (e) => {
-            listitem.className = "list-group-item"
+             listitem.addEventListener('mouseout', (e) => {
+             listitem.className = "list-group-item"
           })
-           ol.appendChild(listitem)
+             listitem.addEventListener('click', (e) => {
+             fillCarousel(e)
+          })
+             ol.appendChild(listitem)
         }
+    }
+
+    function fillCarousel(e) {
+        console.log(imageone)
+        console.log("clicked")
+        console.log(e.target.innerHTML)
+        
+         
+        let name = e.target.innerHTML
+        let park = globalData.find((park) => park.fullName == name)
+        console.log(park)
+        let images = park.images
+        let p = document.getElementById("p")
+        console.log(p)
+        p.innerText = park.fullName
+        console.log(images)
+            imageone.src = images[0].url
+            imagetwo.src = images[1].url
+            imagethree.src = images[2].url
+
     }
 
     // for (let i = 0; i < 5; i++) {
