@@ -1,0 +1,86 @@
+#body {
+    background-color: rgb(1, 1, 58);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#myCarousel {
+    position: relative;
+    left: 400px;
+    bottom: 200px
+    
+}
+
+.carousel-indicators {
+   /* text-align: center; */
+   /* left: 400px;
+    bottom: 200px */
+    position: fixed;
+    margin: auto;
+}
+
+.carousel-item {
+    height: 400px;
+    width: 450px;
+    background-color: blue;
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+#nav {
+    height: 100px;
+    width: 400px;
+    background-color: aquamarine;
+    border-radius: 20px;
+}
+
+#button { 
+    position: absolute;
+    /* top: 10px;
+    left: 200px; */
+    bottom: 0px;
+    left: 0px;
+    /* padding-bottom: 50px; */
+}
+
+#nav2 {
+    height: 270px;
+    width: 100px;
+    background-color: aquamarine;
+    border-radius: 20px;
+}
+
+#logo {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+
+}
+
+#parks{
+    position: fixed;
+    top: 300px;
+    left: 200px;
+    height: 200px;
+    width: 200px;
+    background-color: gray;
+}
+
+#title{
+    float: right;
+
+}
+
+#map{
+    
+    position: fixed;
+    /* float: right; */
+    right: 10px;
+    top: 150;
+    margin: auto;
+    height: 600px;
+    width: 700px;
+
+}
