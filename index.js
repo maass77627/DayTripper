@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     const form = document.querySelector("form")
-    form.addEventListener("submit", (e) => {
-        e.preventDefault()
-        console.log(e.target.park.value)
-        formEntry(e.target.park.value)
-    })
+            form.addEventListener("submit", (e) => {
+                e.preventDefault()
+                console.log(e.target.park.value)
+                formEntry(e.target.park.value)
+            })
     // const imageone = document.getElementById("img1"), imagetwo = document.getElementById("img2"), imagethree = document.getElementById("img3")
     
     let globalData
@@ -25,19 +25,42 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(json.data[0])
         console.log(json.data)
         globalData = json.data
-        handleParks(json.data)
+        createListGroup()
     })
 
-
-    function handleParks(data) {
-        console.log(data)
-       console.log(globalData)
-    
+    function createListGroup() {
+        console.log(globalData.length)
+        for (let i = 0; i < globalData.length; i++) {
+            console.log(i)
+           let ol = document.getElementById("list-group")
+           let listitem = document.createElement("li")
+           listitem.className = "list-group-item"
+           listitem.id = `${i}`
+           listitem.innerText = globalData[i].fullName
+           listitem.addEventListener('mouseover', (e) => {
+             listitem.className = "list-group-item active"
+           })
+           listitem.addEventListener('mouseout', (e) => {
+            listitem.className = "list-group-item"
+          })
+           ol.appendChild(listitem)
+        }
     }
 
-    // function formEntry(search,) {
+    // for (let i = 0; i < 5; i++) {
+    //     console.log("The number is " + i);
+    //     }
 
-    //  }
+    // function handleParks(data) {
+    //     console.log(data)
+    //    console.log(globalData)
+    
+    // }
+
+    function formEntry(search) {
+        console.log(search)
+
+    }
 
     // function search(e, imageone, imagetwo, imagethree) {
     //     console.log(e)
@@ -48,3 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+
+
+// let globalData
+
+// async function myFunction () {
+//   const res = await fetch('./../JSON.json')
+//   const data = await res.json()
+//   globalData = data
+//   console.log(globalData)
+// }
+// myFunction()
