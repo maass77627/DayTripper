@@ -76,8 +76,8 @@
 }
 
 #logo {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     border-radius: 10px;
 
 }
@@ -123,8 +123,54 @@
 }
 
 #img3 {
-    width: 1000px;
+    width: 1100px;
 }
+
+
+  #parkimage{
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    left: 300px;
+  }
+
+  #parkhead {
+    position: absolute;
+    top: 20px;
+    left: 1000px;
+    text-align: center;
+    /* left: 900px; */
+    height: 30px;
+    width: 200px;
+    color: black;
+    background-color: rgb(13, 175, 187);
+    font-size: larger;
+    /* left: 600px; */
+
+  }
+
+  #parkdes {
+    text-align: center;
+    position: absolute;
+    top: 40px;
+    left: 850px;
+    height: 350px;
+    width: 500px;
+    background-color: white;
+    font-size: medium;
+    color: black;
+  }
+
+   #details {
+    /* height: 200px;
+    width: 200px; */
+    /* background-color: blue; */
+    font-size: larger;
+    position: absolute;
+    text-align: center;
+    bottom: 150px;
+    left: 980px
+  } 
 
 #container1 {
     position: absolute;
@@ -139,8 +185,8 @@
     position: absolute;
     top: 900px;
     left: 0px;
-    height: 400px;
-    background-color: rgb(246, 250, 248);
+    height: 500px;
+    background-color: rgb(97, 172, 153);
 }
 
 #container3 {
@@ -150,3 +196,29 @@
     height: 400px;
     background-color: rgb(90, 224, 157);
 }
+
+#table {
+    width: 700px;
+    position: absolute;
+    bottom: 30px;
+    left: 100px;
+}
+
+#timg1 {
+    height: 70px;
+    width: 70px;
+}
+
+ #label1 {
+    height: 300px;
+    width: 300px;
+} 
+
+#label2 {
+    position: absolute;
+    left: 300px;
+    bottom: 300px;
+    height: 300px;
+    width: 300px;
+    z-index: 1;
+} 

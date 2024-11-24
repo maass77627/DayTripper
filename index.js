@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     
-    const form = document.querySelector("form")
-            form.addEventListener("submit", (e) => {
-                e.preventDefault()
-                console.log(e.target.park.value)
-                formEntry(e.target.park.value)
-            })
+    // const form = document.querySelector("form")
+    //         form.addEventListener("submit", (e) => {
+    //             e.preventDefault()
+    //             console.log(e.target.park.value)
+    //             formEntry(e.target.park.value)
+    //         })
     let imageone = document.getElementById("img1"), imagetwo = document.getElementById("img2"), imagethree = document.getElementById("img3")
     
     let globalData
