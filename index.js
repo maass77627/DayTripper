@@ -2,9 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let form = document.getElementById("form")
     form.addEventListener("submit", (e) => {
-        e.preventDefault
-        console.log(e.target)
+        e.preventDefault()
+        console.log(e.target.input.value)
+        createListGroup(e.target.input.value)
+    })
 
+    let carousel = document.getElementById("myCarousel")
+    let map = document.getElementById("usamap")
+    let ol = document.getElementById("list-group")
+
+    let button = document.getElementById("togglebutton")
+    button.addEventListener("click", (e) => {
+        console.log(e.target)
+        toggleImages(e)
     })
    
     let imageone = document.getElementById("img1"), imagetwo = document.getElementById("img2"), imagethree = document.getElementById("img3")
@@ -30,29 +40,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function createListGroup(state) {
-        let parks = globalData.filter((parks) => parks.states !== state)
+        ol.innerHTML = null
+        console.log(state)
+        map.className = "hidden"
+        form.className = "hidden"
+        carousel.className = "nothidden"
 
-    }
-    // function createListGroup() {
-    //     console.log(globalData.length)
-    //     for (let i = 0; i < globalData.length; i++) {
-    //          let ol = document.getElementById("list-group")
-    //          let listitem = document.createElement("li")
-    //          listitem.className = "list-group-item"
-    //          listitem.id = `${i}`
-    //          listitem.innerText = globalData[i].fullName
-    //          listitem.addEventListener('mouseover', (e) => {
-    //          listitem.className = "list-group-item active"
-    //        })
-    //          listitem.addEventListener('mouseout', (e) => {
-    //          listitem.className = "list-group-item"
-    //       })
-    //          listitem.addEventListener('click', (e) => {
-    //          fillCarousel(e)
-    //       })
-    //          ol.appendChild(listitem)
-    //     }
-    // }
+        let parks = globalData.filter((park) => park.states == state)
+          console.log(parks)
+
+       for (let i = 0; i < parks.length; i++) {
+        // let ol = document.getElementById("list-group")
+             let listitem = document.createElement("li")
+             listitem.className = "list-group-item"
+             listitem.id = `${i}`
+             listitem.innerText = parks[i].fullName
+             listitem.addEventListener('mouseover', (e) => {
+             listitem.className = "list-group-item active"
+            })
+            listitem.addEventListener('mouseout', (e) => {
+                 listitem.className = "list-group-item"
+            })
+             listitem.addEventListener('click', (e) => {
+                 fillCarousel(e)
+              })
+                 ol.appendChild(listitem)
+            }
+         }
+    
 
     function fillCarousel(e) {
         console.log(imageone)
@@ -73,27 +88,27 @@ document.addEventListener("DOMContentLoaded", () => {
             imagetwo.src = images[1].url
             imagethree.src = images[2].url
 
-    }
-
-    // for (let i = 0; i < 5; i++) {
-    //     console.log("The number is " + i);
-    //     }
-
-    // function handleParks(data) {
-    //     console.log(data)
-    //    console.log(globalData)
-    
-    // }
-
-    function formEntry(search) {
-        console.log(search)
+            parkInfo()
 
     }
 
-    // function search(e, imageone, imagetwo, imagethree) {
-    //     console.log(e)
+    function parkInfo() {
         
-    // }
+
+    }
+
+    // <div id="myCarousel" class="carousel slide" data-ride="carousel"></div>
+    function toggleImages(e) {
+        if (carousel.className == "hidden") {
+            carousel.className = "nothidden"
+            map.className = "hidden"
+            form.className = "hidden"
+        } else {
+            carousel.className = "hidden"
+            map.className = "nothidden"
+            form.className = "nothidden"
+        }
+    }
 
 
 

@@ -7,6 +7,14 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
+#togglebutton {
+    position: absolute;
+    left: 150px;
+    top: 400px;
+    height: 50px;
+    width: 100px;
+}
+
 #myCarousel {
     position: relative;
     left: 480px;
@@ -43,14 +51,14 @@
 
 #card {
     position: relative;
-    bottom: 500px;
-    left: 200px;
+    bottom: 0px;
+    left: 1500px;
 }
 
 
 #p {
     /* font-family: Georgia, 'Times New Roman', Times, serif; */
-    font-size: 20px;
+    font-size: 50px;
     background-color: rgba(0, 0, 0, 0);
     color: black;
     /* background-color: antiquewhite;
@@ -58,8 +66,9 @@
     height: 100px;
     width: 300px;
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    top: 50px;
+    /* bottom: 0px; */
+    left: 10px;
 }
 
 #list-group {
@@ -98,7 +107,7 @@
 
 }
 
-#usamap {
+/* #usamap {
     position: absolute;
     right: 100px;
     top: 325px;
@@ -106,13 +115,23 @@
     width: 950px;
     z-index: 1;
 
+} */
+
+#usamap {
+    position: absolute;
+    right: 500px;
+    top: 5px;
+    height: 500px;
+    width: 850px;
+    z-index: 1;
+
 }
 
 #form {
     text-align: center;
     position: absolute;
-    right: 300px;
-    top: 800px;
+    left: 500px;
+    top: 320px;
     height: 100px;
     width: 200px;
     background-color: aqua;
@@ -146,13 +165,13 @@
     position: absolute;
     height: 450px;
     width: 700;
-    left: 25px;
+    left: 250px;
   }
 
   #parkhead {
     position: absolute;
     top: 20px;
-    left: 600px;
+    left: 1050px;
     text-align: center;
     /* left: 900px; */
     height: 30px;
@@ -168,7 +187,7 @@
     text-align: center;
     position: absolute;
     top: 40px;
-    left: 500px;
+    left: 900px;
     height: 350px;
     width: 500px;
     background-color: white;
@@ -184,7 +203,7 @@
     position: absolute;
     text-align: center;
     bottom: 200px;
-    left: 500px
+    left: 900px
   } 
 
 #container1 {
@@ -216,7 +235,7 @@
     width: 700px;
     position: absolute;
     bottom: 30px;
-    left: 100px;
+    left: 300px;
 }
 
 #timg1 {
@@ -232,8 +251,17 @@
 
 #label2 {
     position: absolute;
-    left: 300px;
-    bottom: 300px;
+    left: 0px;
+    bottom: 170px;
+    height: 300px;
+    width: 300px;
+    z-index: 1;
+} 
+
+#label3 {
+    position: absolute;
+    left: 1200px;
+    bottom: 170px;
     height: 300px;
     width: 300px;
     z-index: 1;
@@ -259,4 +287,14 @@
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
+.hidden {
+    visibility: hidden;
+
+}
+
+.nothidden {
+    visibility: visible;
+
 }
