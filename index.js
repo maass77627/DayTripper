@@ -7,10 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
         createListGroup(e.target.input.value)
     })
 
+    let wish = document.getElementById("wish")
+    wish.addEventListener("click", (e) => {
+        console.log("clicked")
+        // console.log(e.target.parentNode.childNodes)
+        // console.log(e.target.parentNode)
+        console.log(e.target.parentNode)
+        bucketList(e.target.parentNode)
+    })
+
     let carousel = document.getElementById("myCarousel")
     let map = document.getElementById("usamap")
     let ol = document.getElementById("list-group")
-    let ul = document.getElementById("details")
+    // let ul = document.getElementById("details")
+    let p = document.getElementById("parkdes")
 
     let button = document.getElementById("togglebutton")
     button.addEventListener("click", (e) => {
@@ -70,18 +80,16 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     function fillCarousel(e) {
-        // console.log(imageone)
-        // console.log("clicked")
-        // console.log(e.target.innerHTML)
+       
         let parkimage = document.getElementById("parkimage")
         let name = e.target.innerHTML
         let park = globalData.find((park) => park.fullName == name)
-        // console.log(park)
+        
         let images = park.images
         let p = document.getElementById("p")
-        // console.log(p)
+        
         p.innerText = park.fullName
-        // console.log(images)
+        
         parkimage.src = images[4].url
         imageone.src = images[0].url
         imagetwo.src = images[1].url
@@ -91,26 +99,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     function parkInfo(park) {
-        console.log(park.operatingHours[0].standardHours)
         let hours = park.operatingHours[0].standardHours
-        console.log(park.activities[0].name)
-        // console.log(ul.childNodes[1])
-        // console.log(ul.childNodes[3])
-        // console.log(ul.childNodes[5])
-        // console.log(ul.childNodes[7])
-        // console.log(ul.childNodes[9])
-        // console.log(ul.li.parkname)
-
-        ul.childNodes[1].innerText = "Name:" + " " + park.name
-        ul.childNodes[3].innerText = park.states
-        ul.childNodes[5].innerText = "Hours: \n" + " Monday: " + hours.monday + "\n Tuesday: " + hours.tuesday +  "\n Wednesday: " + hours.wednesday + "\n Thursday: " + hours.thursday + "\n Friday: " + hours.friday
-        ul.childNodes[7].innerText = "Weather:" + " " + park.weatherInfo
-        // ul.childNodes[9].innerText = park.activities
-        for (let i = 0; i < park.activities.length; i++) {
-            ul.childNodes[9].innerText += park.activities[i].name + ",  "
-        }
-
-
+        let header = document.getElementById("parkhead")
+        header.innerText = park.fullName
+        p.innerText = "\n \n Name:" + " " + park.name + "\n State: " + park.states + "\n Hours: \n" + " Monday: " + hours.monday + "\n Tuesday: " + hours.tuesday +  "\n Wednesday: " + hours.wednesday + "\n Thursday: " + hours.thursday + "\n Friday: " + hours.friday
+       
+        let weather = document.getElementById("weather")
+        weather.addEventListener("click", (e) => {
+            p.innerText = null
+            p.innerText = "\n \n" + park.weatherInfo
+        })
+        let activities = document.getElementById("activities")
+        activities.addEventListener("click", (e) => {
+            p.innerText = null
+            for (let i = 0; i < park.activities.length; i++) {
+                   p.innerText += " " + park.activities[i].name + ",  "
+                 }
+        })
+         let main = document.getElementById("main")
+         main.addEventListener("click", (e) => {
+            p.innerText = null
+            p.innerText = "\n \n Name:" + " " + park.name + "\n State: " + park.states + "\n Hours: \n" + " Monday: " + hours.monday + "\n Tuesday: " + hours.tuesday +  "\n Wednesday: " + hours.wednesday + "\n Thursday: " + hours.thursday + "\n Friday: " + hours.friday
+        })
     }
 
     // <div id="myCarousel" class="carousel slide" data-ride="carousel"></div>
@@ -124,6 +134,24 @@ document.addEventListener("DOMContentLoaded", () => {
             map.className = "nothidden"
             form.className = "nothidden"
         }
+    }
+
+    function bucketList(e) {
+        console.log(e)
+        let name = document.getElementById("parkhead")
+        let pic = document.getElementById("parkimage")
+        console.log(name)
+        console.log(pic)
+        let newname = name.innerText
+        let src = pic.src
+        console.log(src)
+        console.log(newname)
+        // let newname = name.innerHTML.slice(6)
+        // console.log(newname)
+        // let timg1 = document.getElementById("timg1")
+        // timg1.src = src
+        // let nameplace = document.getElementById("2")
+        // nameplace.innerText = newname
     }
 
 
