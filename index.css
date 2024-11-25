@@ -35,11 +35,11 @@
     height: 500px;
     width: 900px;
     background-color: rgb(88, 88, 90);
-    text-align: center;
+    /* text-align: center; */
 }
 
 .container {
-    text-align: center;
+    text-align: center; 
 }
 
 #nav {
@@ -74,7 +74,7 @@
 #list-group {
     position: absolute;
     right: 0px;
-    top: 0px;
+    top: 100px;
     width: 300px;
     /* height: 7000px; */
 }
@@ -134,7 +134,7 @@
     top: 320px;
     height: 100px;
     width: 200px;
-    background-color: aqua;
+    background-color: rgb(9, 105, 105);
     z-index: 2;
 
 }
@@ -149,6 +149,7 @@
 }
 
 #img1 {
+    
         width: 1200px;
 }
 
@@ -187,7 +188,7 @@
     text-align: center;
     position: absolute;
     top: 40px;
-    left: 900px;
+    left: 1000px;
     height: 350px;
     width: 500px;
     background-color: white;
@@ -199,11 +200,11 @@
     /* height: 200px;
     width: 200px; */
     /* background-color: blue; */
-    font-size: larger;
+    font-size: 14px;
     position: absolute;
     text-align: center;
-    bottom: 200px;
-    left: 900px
+    bottom: 150px;
+    left: 550px
   } 
 
 #container1 {
@@ -297,4 +298,20 @@
 .nothidden {
     visibility: visible;
 
+}
+
+#wish {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    right: 280px;
+}
+
+#been {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    right: 100px;
 }
