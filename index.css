@@ -211,6 +211,21 @@
     width: 70px;
 }
 
+#timg2 {
+    height: 70px;
+    width: 70px;
+}
+
+#timg3 {
+    height: 70px;
+    width: 70px;
+}
+
+#timg4 {
+    height: 70px;
+    width: 70px;
+}
+
  #label1 {
     height: 300px;
     width: 300px;
@@ -284,7 +299,7 @@
 
 #weather{
     position: absolute;
-    top: 50px;
+    top: 100px;
     left: 900px;
     height: 50px;
     width: 100px;
@@ -292,7 +307,7 @@
 
 #activities{
     position: absolute;
-    top: 100px;
+    top: 150px;
     left: 900px;
     height: 50px;
     width: 100px
@@ -300,7 +315,7 @@
 
 #main{
     position: absolute;
-    top: 150px;
+    top: 200px;
     left: 900px;
     height: 50px;
     width: 100px

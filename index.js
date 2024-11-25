@@ -3,24 +3,28 @@ document.addEventListener("DOMContentLoaded", () => {
     let form = document.getElementById("form")
     form.addEventListener("submit", (e) => {
         e.preventDefault()
-        // console.log(e.target.input.value)
         createListGroup(e.target.input.value)
     })
 
     let wish = document.getElementById("wish")
     wish.addEventListener("click", (e) => {
-        console.log("clicked")
-        // console.log(e.target.parentNode.childNodes)
         // console.log(e.target.parentNode)
-        console.log(e.target.parentNode)
         bucketList(e.target.parentNode)
     })
 
-    let carousel = document.getElementById("myCarousel")
-    let map = document.getElementById("usamap")
-    let ol = document.getElementById("list-group")
-    // let ul = document.getElementById("details")
-    let p = document.getElementById("parkdes")
+    let been = document.getElementById("been")
+    been.addEventListener("click", (e) => {
+       console.log(e.target.parentNode)
+        travelsCard(e.target.parentNode)
+    })
+
+    let carousel = document.getElementById("myCarousel"), map = document.getElementById("usamap"), ol = document.getElementById("list-group"), p = document.getElementById("parkdes") 
+    
+    let buttontwo = document.getElementById("delete")
+    buttontwo.addEventListener("click", (e) => {
+        console.log(e.target.parentNode.parentNode)
+        deleteWish(e.target.parentNode.parentNode)
+    })
 
     let button = document.getElementById("togglebutton")
     button.addEventListener("click", (e) => {
@@ -52,13 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function createListGroup(state) {
         ol.innerHTML = null
-        console.log(state)
+        // console.log(state)
         map.className = "hidden"
         form.className = "hidden"
         carousel.className = "nothidden"
 
         let parks = globalData.filter((park) => park.states == state)
-          console.log(parks)
+        //   console.log(parks)
 
        for (let i = 0; i < parks.length; i++) {
              let listitem = document.createElement("li")
@@ -80,21 +84,16 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     function fillCarousel(e) {
-       
         let parkimage = document.getElementById("parkimage")
         let name = e.target.innerHTML
         let park = globalData.find((park) => park.fullName == name)
-        
         let images = park.images
         let p = document.getElementById("p")
-        
         p.innerText = park.fullName
-        
         parkimage.src = images[4].url
         imageone.src = images[0].url
         imagetwo.src = images[1].url
         imagethree.src = images[2].url
-
             parkInfo(park)
         }
 
@@ -103,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let header = document.getElementById("parkhead")
         header.innerText = park.fullName
         p.innerText = "\n \n Name:" + " " + park.name + "\n State: " + park.states + "\n Hours: \n" + " Monday: " + hours.monday + "\n Tuesday: " + hours.tuesday +  "\n Wednesday: " + hours.wednesday + "\n Thursday: " + hours.thursday + "\n Friday: " + hours.friday
-       
         let weather = document.getElementById("weather")
         weather.addEventListener("click", (e) => {
             p.innerText = null
@@ -136,24 +134,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    let count = 1
     function bucketList(e) {
-        console.log(e)
         let name = document.getElementById("parkhead")
         let pic = document.getElementById("parkimage")
-        console.log(name)
-        console.log(pic)
         let newname = name.innerText
         let src = pic.src
-        console.log(src)
-        console.log(newname)
-        // let newname = name.innerHTML.slice(6)
-        // console.log(newname)
-        // let timg1 = document.getElementById("timg1")
-        // timg1.src = src
-        // let nameplace = document.getElementById("2")
-        // nameplace.innerText = newname
+
+        if (count < 5) {
+             let tablename = document.getElementById(`${count}`)
+             let image = document.getElementById(`timg${count}`)
+             console.log(image)
+             image.src = src
+             tablename.innerText = newname
+            count += 1
+        }
+            
+            console.log(count)
     }
 
+
+    function deleteWish(event) {
+        console.log(event)
+       
+    }
+
+    function travelsCard() {
+        let head = document.getElementById("parkhead")
+        let title = head.innerText
+        let oldimage = document.getElementById("parkimage")
+        let src = oldimage.src
+        let image = document.getElementById("cardimage")
+        image.src = src
+        let cardname = document.getElementById("cardtitle")
+        cardname.innerText = title
+        // parkimage parkhead
+    }
 
 
 });
