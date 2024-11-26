@@ -1,20 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    let form = document.getElementById("form")
+    let form = document.getElementById("form"), wish = document.getElementById("wish"), been = document.getElementById("been")
+
     form.addEventListener("submit", (e) => {
         e.preventDefault()
         createListGroup(e.target.input.value)
     })
 
-    let wish = document.getElementById("wish")
+    // let wish = document.getElementById("wish")
     wish.addEventListener("click", (e) => {
-        // console.log(e.target.parentNode)
+        
         bucketList(e.target.parentNode)
     })
 
-    let been = document.getElementById("been")
     been.addEventListener("click", (e) => {
-       console.log(e.target.parentNode)
         travelsCard(e.target.parentNode)
     })
 
@@ -22,13 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let buttontwo = document.getElementById("delete")
     buttontwo.addEventListener("click", (e) => {
-        console.log(e.target.parentNode.parentNode)
         deleteWish(e.target.parentNode.parentNode)
     })
 
     let button = document.getElementById("togglebutton")
     button.addEventListener("click", (e) => {
-        console.log(e.target)
         toggleImages(e)
     })
    
@@ -56,13 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function createListGroup(state) {
         ol.innerHTML = null
-        // console.log(state)
         map.className = "hidden"
         form.className = "hidden"
         carousel.className = "nothidden"
 
         let parks = globalData.filter((park) => park.states == state)
-        //   console.log(parks)
 
        for (let i = 0; i < parks.length; i++) {
              let listitem = document.createElement("li")
@@ -121,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    // <div id="myCarousel" class="carousel slide" data-ride="carousel"></div>
     function toggleImages(e) {
         if (carousel.className == "hidden") {
             carousel.className = "nothidden"
@@ -161,19 +155,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function travelsCard() {
         let head = document.getElementById("parkhead")
-        let title = head.innerText
-        let oldimage = document.getElementById("parkimage")
-        let src = oldimage.src
-        let image = document.getElementById("cardimage")
-        image.src = src
-        let cardname = document.getElementById("cardtitle")
-        cardname.innerText = title
-        // parkimage parkhead
+             let title = head.innerText
+             let oldimage = document.getElementById("parkimage")
+             let src = oldimage.src
+             let cardimage = document.getElementById("cardimage")
+            let cardname = document.getElementById("cardtitle")
+             let cardtext = document.getElementById("cardtext")
+                cardimage.src = src,
+                cardname.innerText = title,
+                cardtext.innerHTML = "Ive traveled here before"
+        
     }
 
 
 });
-
 
 
 
